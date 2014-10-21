@@ -55,11 +55,12 @@ makeCacheMatrix <- function(x = matrix()) {
 ## the operation is cached after the first time it is requested, and subsequent
 ## requests for the value are returned from the cache. 
 ## 
-## The inverse itself is calculated by calling solve() with parameter x, any 
-## optional parameters will also be passed along to solve() (but note, this
-## function does not take those into account when reading the cache... if you
-## choose to call this with optional parameters to solve(), be sure to
-## invalidate the cache before doing so, e.g. x$setinverse(NULL))
+## The inverse itself is calculated by calling solve() with the original matrix
+## passed to makeCacheMatrix as parameter, any optional parameters will also be
+## passed along to solve() (but note, this function does not take those into 
+## account when reading the cache... if you choose to call this with optional 
+## parameters to solve(), be sure to invalidate the cache before doing so, 
+## e.g. x$setinverse(NULL))
 cacheSolve <- function(x, ...) {
     inv <- x$getinverse()
     if (! is.null(inv)) {
