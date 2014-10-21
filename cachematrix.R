@@ -59,8 +59,8 @@ makeCacheMatrix <- function(x = matrix()) {
 ## passed to makeCacheMatrix as parameter, any optional parameters will also be
 ## passed along to solve() (but note, this function does not take those into 
 ## account when reading the cache... if you choose to call this with optional 
-## parameters to solve(), be sure to invalidate the cache before doing so, 
-## e.g. x$setinverse(NULL))
+## parameters to solve(), and those parameters change, be sure to invalidate the
+## cache before doing so, e.g. x$setinverse(NULL))
 cacheSolve <- function(x, ...) {
     inv <- x$getinverse()
     if (! is.null(inv)) {
