@@ -39,15 +39,11 @@ makeCacheMatrix <- function(x = matrix()) {
         x <<- y # update value of x in outer scope of makeCacheMatrix body
         inv <<- NULL # unset value of inv in outer scope in case prev set
     }
-    message("set is created")
     get <- function() x
-    message("get is created")
     setinverse <- function(inverse) {
         inv <<- inverse # set in outer scope of function body   
     }
-    message("setinverse is created")
     getinverse <- function() inv
-    message("getinverse is created")
     list(set = set, get = get, setinverse = setinverse, getinverse = getinverse)
 }
 
